@@ -29,32 +29,32 @@ export function DeleteConfirmDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-red-600">
-            <AlertCircle className="h-5 w-5" />
+      <DialogContent className="max-w-[90vw] sm:max-w-md p-4 sm:p-6">
+        <DialogHeader className="space-y-2 sm:space-y-3">
+          <DialogTitle className="flex items-center gap-2 text-red-600 text-base sm:text-lg">
+            <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5" />
             Konfirmasi Hapus Data
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-xs sm:text-sm">
             Tindakan ini tidak dapat dibatalkan.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 py-4">
-          <p className="text-sm text-gray-600">
+        <div className="space-y-3 sm:space-y-4 py-3 sm:py-4">
+          <p className="text-xs sm:text-sm text-gray-600">
             Anda yakin ingin menghapus data gaji berikut?
           </p>
 
-          <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-            <div className="flex justify-between text-sm">
+          <div className="bg-gray-50 rounded-lg p-3 sm:p-4 space-y-2">
+            <div className="flex justify-between text-xs sm:text-sm">
               <span className="font-medium text-gray-600">NIP:</span>
-              <span className="font-semibold">{data.nip}</span>
+              <span className="font-semibold truncate ml-2">{data.nip}</span>
             </div>
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-xs sm:text-sm">
               <span className="font-medium text-gray-600">Nama:</span>
-              <span className="font-semibold">{data.namaPegawai}</span>
+              <span className="font-semibold truncate ml-2">{data.namaPegawai}</span>
             </div>
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-xs sm:text-sm">
               <span className="font-medium text-gray-600">Periode:</span>
               <span className="font-semibold">
                 {data.bulan} {data.tahun}
@@ -62,17 +62,18 @@ export function DeleteConfirmDialog({
             </div>
           </div>
 
-          <p className="text-sm text-red-600 font-medium">
+          <p className="text-xs sm:text-sm text-red-600 font-medium">
             Data yang dihapus tidak dapat dikembalikan!
           </p>
         </div>
 
-        <DialogFooter className="gap-2">
+        <DialogFooter className="gap-2 flex-col sm:flex-row">
           <Button
             type="button"
             variant="outline"
             onClick={() => onOpenChange(false)}
             disabled={isLoading}
+            className="w-full sm:w-auto text-sm h-9 sm:h-10"
           >
             Batal
           </Button>
@@ -81,6 +82,7 @@ export function DeleteConfirmDialog({
             variant="destructive"
             onClick={handleConfirm}
             disabled={isLoading}
+            className="w-full sm:w-auto text-sm h-9 sm:h-10"
           >
             {isLoading ? "Menghapus..." : "Ya, Hapus Data"}
           </Button>

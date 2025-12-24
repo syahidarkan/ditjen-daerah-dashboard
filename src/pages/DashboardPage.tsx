@@ -93,19 +93,26 @@ export function DashboardPage() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-3 sm:gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Dashboard Gaji</h1>
-            <p className="text-gray-600 mt-1">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Dashboard Gaji</h1>
+            <p className="text-sm sm:text-base text-gray-600 mt-1">
               Kelola data gaji pegawai DITJEN Pembangunan Daerah
             </p>
           </div>
-          <div className="flex gap-2">
-            <Button onClick={() => setImportDialogOpen(true)} variant="outline">
+
+          {/* Action Buttons - Responsive */}
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
+            <Button
+              onClick={() => setImportDialogOpen(true)}
+              variant="outline"
+              className="w-full sm:w-auto text-sm"
+              size="sm"
+            >
               <Upload className="h-4 w-4 mr-2" />
-              Import Excel
+              <span className="sm:inline">Import Excel</span>
             </Button>
             <ExportButton
               allData={allData}
@@ -113,9 +120,13 @@ export function DashboardPage() {
               selectedData={selectedRows}
               filters={filters}
             />
-            <Button onClick={() => setAddDialogOpen(true)}>
+            <Button
+              onClick={() => setAddDialogOpen(true)}
+              className="w-full sm:w-auto text-sm"
+              size="sm"
+            >
               <Plus className="h-4 w-4 mr-2" />
-              Tambah Data
+              <span className="sm:inline">Tambah Data</span>
             </Button>
           </div>
         </div>

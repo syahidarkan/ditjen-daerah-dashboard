@@ -17,10 +17,10 @@ export function AddDataDialog({ open, onOpenChange, onSubmit, isLoading = false 
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>Tambah Data Gaji</DialogTitle>
-          <DialogDescription>
+      <DialogContent className="max-w-[95vw] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
+        <DialogHeader className="space-y-2 sm:space-y-3">
+          <DialogTitle className="text-base sm:text-lg md:text-xl">Tambah Data Gaji</DialogTitle>
+          <DialogDescription className="text-xs sm:text-sm">
             Isi formulir di bawah ini untuk menambahkan data gaji pegawai baru.
             Field yang ditandai dengan * wajib diisi.
           </DialogDescription>

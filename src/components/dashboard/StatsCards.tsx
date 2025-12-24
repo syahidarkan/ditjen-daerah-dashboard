@@ -49,11 +49,11 @@ export function StatsCards({ stats, isLoading = false }: StatsCardsProps) {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 mb-4 md:mb-6">
         {[1, 2, 3, 4, 5].map((i) => (
           <Card key={i} className="animate-pulse">
-            <CardContent className="p-6">
-              <div className="h-20 bg-gray-200 rounded"></div>
+            <CardContent className="p-3 sm:p-4 md:p-6">
+              <div className="h-16 sm:h-20 bg-gray-200 rounded"></div>
             </CardContent>
           </Card>
         ))}
@@ -62,22 +62,22 @@ export function StatsCards({ stats, isLoading = false }: StatsCardsProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 mb-4 md:mb-6">
       {cards.map((card) => {
         const Icon = card.icon;
         return (
           <Card key={card.title} className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-6">
-              <div className="flex flex-col gap-3">
+            <CardContent className="p-3 sm:p-4 md:p-6">
+              <div className="flex flex-col gap-2 sm:gap-3">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-600">
+                  <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">
                     {card.title}
                   </p>
-                  <div className={`${card.bgColor} p-2 rounded-lg`}>
-                    <Icon className={`h-5 w-5 ${card.iconColor}`} />
+                  <div className={`${card.bgColor} p-1.5 sm:p-2 rounded-lg shrink-0`}>
+                    <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${card.iconColor}`} />
                   </div>
                 </div>
-                <p className="text-lg font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis">
+                <p className="text-sm sm:text-base md:text-lg font-bold text-gray-900 truncate" title={card.value}>
                   {card.value}
                 </p>
               </div>

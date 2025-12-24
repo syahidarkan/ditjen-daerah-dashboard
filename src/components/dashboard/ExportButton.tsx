@@ -72,23 +72,23 @@ export function ExportButton({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button disabled={isExporting}>
+        <Button disabled={isExporting} className="w-full sm:w-auto text-sm h-9 sm:h-10" size="sm">
           <Download className="h-4 w-4 mr-2" />
-          {isExporting ? "Mengexport..." : "Export Excel"}
+          <span className="sm:inline">{isExporting ? "Mengexport..." : "Export Excel"}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel>Pilih Data yang Diexport</DropdownMenuLabel>
+      <DropdownMenuContent align="end" className="w-52 sm:w-56">
+        <DropdownMenuLabel className="text-xs sm:text-sm">Pilih Data yang Diexport</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => handleExport("all")}>
-          <FileSpreadsheet className="mr-2 h-4 w-4" />
+        <DropdownMenuItem onClick={() => handleExport("all")} className="text-xs sm:text-sm">
+          <FileSpreadsheet className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
           <div className="flex flex-col">
             <span>Export Semua Data</span>
             <span className="text-xs text-gray-500">{allData.length} data</span>
           </div>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleExport("filtered")}>
-          <FileSpreadsheet className="mr-2 h-4 w-4" />
+        <DropdownMenuItem onClick={() => handleExport("filtered")} className="text-xs sm:text-sm">
+          <FileSpreadsheet className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
           <div className="flex flex-col">
             <span>Export Data Terfilter</span>
             <span className="text-xs text-gray-500">
@@ -97,8 +97,8 @@ export function ExportButton({
           </div>
         </DropdownMenuItem>
         {selectedData.length > 0 && (
-          <DropdownMenuItem onClick={() => handleExport("selected")}>
-            <FileSpreadsheet className="mr-2 h-4 w-4" />
+          <DropdownMenuItem onClick={() => handleExport("selected")} className="text-xs sm:text-sm">
+            <FileSpreadsheet className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             <div className="flex flex-col">
               <span>Export Data Terpilih</span>
               <span className="text-xs text-gray-500">
